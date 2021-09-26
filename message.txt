@@ -1,5 +1,8 @@
-high there :p
-Funny Joke huh?
-You got this Eldridge! Just 7 months and you will be set to go woohoo!
+Hi there :)
+
+To whoever is using this program that I made for my final
+solo project in Mod 1. This is a program that is supposed
+to convert Braille to English and Vice Versa. Lets go <3
 
 Created 'braille.txt' containing 256 characters
+Hello! I do not know what I am doing.
