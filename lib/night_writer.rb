@@ -6,10 +6,9 @@ class NightWriter
   #end
 
   def print_message
-    puts 'hi'
+    file = File.open("message.txt").read
+    puts file
   end
-
-
 end
 
 NightWriter.new.print_message
