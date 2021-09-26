@@ -22,5 +22,5 @@ class NightWriter
   end
 end
 
-# NightWriter.new.print_message
+
  NightWriter.new.read_write
