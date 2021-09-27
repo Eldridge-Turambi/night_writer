@@ -25,9 +25,9 @@ class NightWriter
       x = find_by_letter(letter)
       braille_letters << x
     end
-    braille_letters.compact.transpose
-
+    return braille_letters.compact.transpose.map {|row| row.join(" ")}.join("\n")
   end
+
 
   def read_write
     message = convert_english_message
