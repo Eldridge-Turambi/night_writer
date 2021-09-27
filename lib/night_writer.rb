@@ -5,7 +5,7 @@ class NightWriter
   def initialize
     @input_file = ARGV[0]
     @output_file = ARGV[1]
-    @braille_dictionary = BrailleDictionary.new
+    @braille_dictionary_1 = BrailleDictionary.new
   end
 
 
@@ -18,7 +18,7 @@ class NightWriter
     braille_letters = []
 
     english_letters.each do |letter|
-      braille_letters << @braille_dictionary.translate_letter_to_braille(letter)
+      braille_letters << @braille_dictionary_1.translate_letter_to_braille(letter)
     end
 
     return braille_letters.compact.transpose.map {|row| row.join(" ")}.join("\n")
