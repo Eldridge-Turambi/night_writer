@@ -58,4 +58,8 @@ class EnglishDictionary
       ["..0.", "...0", ".000"] => "Z"
     }
   end
-end 
+
+  def translate_braille_to_letter(braille_letter)
+    @english_dictionary[braille_letter]
+  end
+end
