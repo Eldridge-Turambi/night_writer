@@ -9,19 +9,19 @@ class NightWriter
   end
 
 
-  def read_message
+  def read_english_message
     File.open(@input_file).read
   end
 
   def convert_english_message
-    english_letters = read_message.chars
+    english_letters = read_english_message.chars
     braille_letters = []
 
     english_letters.each do |letter|
       braille_letters << @braille_dictionary_1.translate_letter_to_braille(letter)
     end
 
-    return braille_letters.compact.transpose.map {|row| row.join(" ")}.join("\n")
+    return braille_letters.compact.transpose.map {|row| row.join("")}.join("\n")
   end
 
 
