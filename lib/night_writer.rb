@@ -21,7 +21,7 @@ class NightWriter
       braille_letters << @braille_dictionary_1.translate_letter_to_braille(letter)
     end
 
-    return braille_letters.compact.transpose.map {|row| row.join(" ")}.join("\n")
+    return braille_letters.compact.transpose.map {|row| row.join("")}.join("\n")
   end
 
 
