@@ -1,16 +1,11 @@
-require './lib/braille_dictionary'
+require_relative 'braille_dictionary'
 
 class NightWriter
 
   def initialize
     @input_file = ARGV[0]
     @output_file = ARGV[1]
-    @bd = BrailleDictionary.new.braille_dictionary
-    @braille_dictionary = {
-      'a' => ['0.', '..', '..'],
-      'b' => ['0.', '0.', '..'],
-      'c' => ['00', '..', '..']
-    }
+    @braille_dictionary = BrailleDictionary.new
   end
 
 
@@ -21,24 +16,26 @@ class NightWriter
   def convert_english_message
     english_letters = read_message.chars
     braille_letters = []
+
     english_letters.each do |letter|
-      x = find_by_letter(letter)
-      braille_letters << x
+      braille_letters << @braille_dictionary.translate_letter_to_braille(letter)
     end
+
     return braille_letters.compact.transpose.map {|row| row.join(" ")}.join("\n")
   end
 
 
   def read_write
-    message = convert_english_message
+    braille_string = convert_english_message
     File.open(@output_file, 'w') do |file|
-      file.write(message)
+      file.write(braille_string)
     end
+    puts "Created braille.txt containing #{braille_string.length} characters"
   end
 
-  def find_by_letter(single_letter)
-    braille_code = @braille_dictionary[single_letter]
-  end
+  # def find_by_letter(single_letter)
+  #   braille_code = @braille_dictionary[single_letter]
+  # end
 end
 
 
