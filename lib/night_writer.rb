@@ -9,12 +9,12 @@ class NightWriter
   end
 
 
-  def read_message
+  def read_english_message
     File.open(@input_file).read
   end
 
   def convert_english_message
-    english_letters = read_message.chars
+    english_letters = read_english_message.chars
     braille_letters = []
 
     english_letters.each do |letter|
