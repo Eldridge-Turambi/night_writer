@@ -14,13 +14,10 @@ class NightReader
   end
 
   def convert_braille_message
-    braille_letters = JSON.parse( read_braille_message.tr("'", '"') )
-    english_letters = []
-
-    braille_letters.each do |letter|
-      english_letters << @english_dictionary_1.translate_braille_to_letter(letter)
-    end
-    return english_letters.join
+    braille_letters = read_braille_message
+    braille_letters_to_array = braille_letters.split(/\n+/)
+    array = braille_letters_to_array.map { |input| input.scan(/../) }.transpose
+    array.map { |a| @english_dictionary_1.translate_braille_to_letter(a) }.join
   end
 
   def read_write
