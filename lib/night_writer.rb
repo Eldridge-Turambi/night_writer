@@ -20,8 +20,12 @@ class NightWriter
     english_letters.each do |letter|
       braille_letters << @braille_dictionary_1.translate_letter_to_braille(letter)
     end
+    if @input_file.size <= 40
+      return braille_letters.compact.transpose.map {|row| row.join("")}.join("\n")
+    elsif @input_file.size > 40
+      return braille_letters.compact.transpose.map {|row| row.join("")}.join("\n") + "\n"
+    end
 
-    return braille_letters.compact.transpose.map {|row| row.join("")}.join("\n")
   end
 
 
@@ -30,7 +34,7 @@ class NightWriter
     File.open(@output_file, 'w') do |file|
       file.write(braille_string)
     end
-    puts "Created braille.txt containing #{braille_string.length} characters"
+    puts "Created braille.txt containing #{braille_string.size} characters"
   end
 
   # def find_by_letter(single_letter)
