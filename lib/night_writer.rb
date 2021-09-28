@@ -30,7 +30,7 @@ class NightWriter
     File.open(@output_file, 'w') do |file|
       file.write(braille_string)
     end
-    puts "Created braille.txt containing #{braille_string.length} characters"
+    puts "Created braille.txt containing #{braille_string.size} characters"
   end
 
   # def find_by_letter(single_letter)
